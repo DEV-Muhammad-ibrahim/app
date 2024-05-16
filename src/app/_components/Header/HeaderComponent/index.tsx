@@ -1,18 +1,20 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { Header } from '../../../../payload/payload-types'
+import { noHeaderFooterUrls } from '../../../constants'
 import { Gutter } from '../../Gutter'
 import { HeaderNav } from '../Nav'
-import Link from 'next/link'
-import Image from 'next/image'
+
 import classes from './index.module.scss'
-import MobileNav from '../MobileNav'
-import { noHeaderFooterUrls } from '../../../constants'
-import { usePathname } from 'next/navigation'
 
 const HeaderComponent = ({ header }: { header: Header }) => {
   const pathname = usePathname()
+
   return (
     <nav
       className={[classes.header, noHeaderFooterUrls.includes(pathname) && classes.hide]
@@ -20,11 +22,11 @@ const HeaderComponent = ({ header }: { header: Header }) => {
         .join(' ')}
     >
       <Gutter className={classes.wrap}>
-        <Link href="./">
-          <Image src="./logo-black.svg" width={170} height={50} alt="logo" />
+        <Link href="/">
+          <Image src="/logo-black.svg" alt="logo" width={170} height={50} />
         </Link>
+
         <HeaderNav header={header} />
-        <MobileNav header={header} />
       </Gutter>
     </nav>
   )
