@@ -34,8 +34,8 @@ export const hero: Field = {
           value: 'lowImpact',
         },
         {
-          label: 'Custom  Impact',
-          value: 'Custom Impact',
+          label: 'Custom Hero',
+          value: 'customHero',
         },
       ],
     },
